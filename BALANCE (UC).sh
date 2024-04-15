@@ -1,19 +1,16 @@
 #!/bin/sh
 
-#log
-#DIR=/storage/emulated/0
+LOG_RVTUNING=/sdcard
+DATE=$(date +"%Y-%m-%d")
+TIME=$(date +"%H:%M:%S")
 
-#rvtuning() {
-#mkdir -p "$DIR/RvTuning"
-#rm -f "$DIR/RvTuning/rvtuning.log"
-#LOG_LOCATION="/storage/emulated/0/RvTuning/"
-#exec >> $LOG_LOCATION/rvtuning.log 2>&1
-#}
+#Delete old log
+#rm -rf $LOG_RVTUNING/rvtuning.log
 
-#TIMESTAMP
-#DATE=$(date +"%Y-%m-%d")
-#TIME=$(date +"%H:%M:%S")
+#Exit on error
+#set -e
 
+rvtuning() {
 #RVE
 RVE_CPU0f=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_Rv=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
@@ -49,6 +46,9 @@ RVE_STbg=/dev/stune/background
 RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
+
+#Start
+echo "[$DATE]-[$TIME] Running RvTuning"
 
 #Little Cluster CPU0 Permission
 chmod 0644 "$RVE_CPU0f/scaling_governor"
@@ -285,4 +285,9 @@ echo 0 > "$RVE_K/print-fatal-signals"
 echo 1 > "$RVE_K/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_K/sched_autogroup_enabled"
 
-#rvtuning "[$DATE]-[$TIME] Balance mode applied"
+#Done
+echo "[$DATE]-[$TIME] Balance UC mode applied"
+}
+
+#Call the function
+rvtuning #2>&1 | tee -a $LOG_RVTUNING/rvtuning.log
