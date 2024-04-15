@@ -22,12 +22,12 @@ RVE_CPU4_L3=/sys/class/devfreq/soc:qcom,l3-cpu4
 RVE_GPU=/sys/class/kgsl/kgsl-3d0
 RVE_GPU_FREQ=/sys/class/kgsl/kgsl-3d0/devfreq
 
-RVE_IOa=/sys/block/sda/queue
-RVE_IOb=/sys/block/sdb/queue
-RVE_IOc=/sys/block/sdc/queue
-RVE_IOd=/sys/block/sdd/queue
-RVE_IOe=/sys/block/sde/queue
-RVE_IOf=/sys/block/sdf/queue
+RVE_IO_SDA=/sys/block/sda/queue
+RVE_IO_SDB=/sys/block/sdb/queue
+RVE_IO_SDC=/sys/block/sdc/queue
+RVE_IO_SDD=/sys/block/sdd/queue
+RVE_IO_SDE=/sys/block/sde/queue
+RVE_IO_SDF=/sys/block/sdf/queue
 
 RVE_TC=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
@@ -104,29 +104,29 @@ chmod 0644 "$RVE_GPU_FREQ/max_freq"
 chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler Permission
-chmod 0644 "$RVE_IOa/scheduler"
-chmod 0644 "$RVE_IOa/read_ahead_kb"
-chmod 0644 "$RVE_IOa/nr_requests"
+chmod 0644 "$RVE_IO_SDA/scheduler"
+chmod 0644 "$RVE_IO_SDA/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDA/nr_requests"
 
-chmod 0644 "$RVE_IOb/scheduler"
-chmod 0644 "$RVE_IOb/read_ahead_kb"
-chmod 0644 "$RVE_IOb/nr_requests"
+chmod 0644 "$RVE_IO_SDB/scheduler"
+chmod 0644 "$RVE_IO_SDB/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDB/nr_requests"
 
-chmod 0644 "$RVE_IOc/scheduler"
-chmod 0644 "$RVE_IOc/read_ahead_kb"
-chmod 0644 "$RVE_IOc/nr_requests"
+chmod 0644 "$RVE_IO_SDC/scheduler"
+chmod 0644 "$RVE_IO_SDC/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDC/nr_requests"
 
-chmod 0644 "$RVE_IOd/scheduler"
-chmod 0644 "$RVE_IOd/read_ahead_kb"
-chmod 0644 "$RVE_IOd/nr_requests"
+chmod 0644 "$RVE_IO_SDD/scheduler"
+chmod 0644 "$RVE_IO_SDD/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDD/nr_requests"
 
-chmod 0644 "$RVE_IOe/scheduler"
-chmod 0644 "$RVE_IOe/read_ahead_kb"
-chmod 0644 "$RVE_IOe/nr_requests"
+chmod 0644 "$RVE_IO_SDE/scheduler"
+chmod 0644 "$RVE_IO_SDE/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDE/nr_requests"
 
-chmod 0644 "$RVE_IOf/scheduler"
-chmod 0644 "$RVE_IOf/read_ahead_kb"
-chmod 0644 "$RVE_IOf/nr_requests"
+chmod 0644 "$RVE_IO_SDF/scheduler"
+chmod 0644 "$RVE_IO_SDF/read_ahead_kb"
+chmod 0644 "$RVE_IO_SDF/nr_requests"
 
 #Charge Permission
 chmod 0644 "$RVE_TC/skip_thermal"
@@ -207,29 +207,29 @@ echo 710000000 > "$RVE_GPU_FREQ/max_freq"
 echo 1 > "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler
-echo "rvkernel" > "$RVE_IOa/scheduler"
-echo 512 > "$RVE_IOa/read_ahead_kb"
-echo 128 > "$RVE_IOa/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDA/scheduler"
+echo 512 > "$RVE_IO_SDA/read_ahead_kb"
+echo 128 > "$RVE_IO_SDA/nr_requests"
 
-echo "rvkernel" > "$RVE_IOb/scheduler"
-echo 512 > "$RVE_IOb/read_ahead_kb"
-echo 128 > "$RVE_IOb/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDB/scheduler"
+echo 512 > "$RVE_IO_SDB/read_ahead_kb"
+echo 128 > "$RVE_IO_SDB/nr_requests"
 
-echo "rvkernel" > "$RVE_IOc/scheduler"
-echo 512 > "$RVE_IOc/read_ahead_kb"
-echo 128 > "$RVE_IOc/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDC/scheduler"
+echo 512 > "$RVE_IO_SDC/read_ahead_kb"
+echo 128 > "$RVE_IO_SDC/nr_requests"
 
-echo "rvkernel" > "$RVE_IOd/scheduler"
-echo 512 > "$RVE_IOd/read_ahead_kb"
-echo 128 > "$RVE_IOd/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDD/scheduler"
+echo 512 > "$RVE_IO_SDD/read_ahead_kb"
+echo 128 > "$RVE_IO_SDD/nr_requests"
 
-echo "rvkernel" > "$RVE_IOe/scheduler"
-echo 512 > "$RVE_IOe/read_ahead_kb"
-echo 128 > "$RVE_IOe/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDE/scheduler"
+echo 512 > "$RVE_IO_SDE/read_ahead_kb"
+echo 128 > "$RVE_IO_SDE/nr_requests"
 
-echo "rvkernel" > "$RVE_IOf/scheduler"
-echo 512 > "$RVE_IOf/read_ahead_kb"
-echo 128 > "$RVE_IOf/nr_requests"
+echo "rvkernel" > "$RVE_IO_SDF/scheduler"
+echo 512 > "$RVE_IO_SDF/read_ahead_kb"
+echo 128 > "$RVE_IO_SDF/nr_requests"
 
 #Thermal Charge & Fast Charge
 echo "N" > "$RVE_TC/skip_thermal"
