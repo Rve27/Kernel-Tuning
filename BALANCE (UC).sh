@@ -23,7 +23,7 @@ RVE_CPU4_RvKernel=/sys/devices/system/cpu/cpu4/cpufreq/rvkernel
 RVE_CPU4_CORE=/sys/devices/system/cpu/cpu4/core_ctl
 
 RVE_GPU=/sys/class/kgsl/kgsl-3d0
-RVE_GPUf=/sys/class/kgsl/kgsl-3d0/devfreq
+RVE_GPU_FREQ=/sys/class/kgsl/kgsl-3d0/devfreq
 
 RVE_IOmmc=/sys/block/mmcblk0/queue
 RVE_IOa=/sys/block/sda/queue
@@ -106,9 +106,9 @@ chmod 0644 "$RVE_GPU/force_rail_on"
 chmod 0644 "$RVE_GPU/force_clk_on"
 chmod 0644 "$RVE_GPU/throttling"
 
-chmod 0644 "$RVE_GPUf/min_freq"
-chmod 0644 "$RVE_GPUf/max_freq"
-chmod 0644 "$RVE_GPUf/adrenoboost"
+chmod 0644 "$RVE_GPU_FREQ/min_freq"
+chmod 0644 "$RVE_GPU_FREQ/max_freq"
+chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler Permission
 chmod 0644 "$RVE_IOmmc/scheduler"
@@ -213,9 +213,9 @@ echo 0 > "$RVE_GPU/force_rail_on"
 echo 0 > "$RVE_GPU/force_clk_on"
 echo 0 > "$RVE_GPU/throttling"
 
-echo 160000000 > "$RVE_GPUf/min_freq"
-echo 596000000 > "$RVE_GPUf/max_freq"
-echo 1 > "$RVE_GPUf/adrenoboost"
+echo 160000000 > "$RVE_GPU_FREQ/min_freq"
+echo 596000000 > "$RVE_GPU_FREQ/max_freq"
+echo 1 > "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler
 echo "rvkernel" > "$RVE_IOmmc/scheduler"
