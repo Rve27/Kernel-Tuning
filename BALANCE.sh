@@ -9,7 +9,6 @@ TIME=$(date +"%H:%M:%S")
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_RvKernel=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
 RVE_CPU0_CORE=/sys/devices/system/cpu/cpu0/core_ctl
-RVE_CPU0_L3=/sys/class/devfreq/soc:qcom,l3-cpu0
 
 RVE_CPU_BOOST=/sys/module/cpu_boost/parameters
 RVE_CPU_INPUT_BOOST=/sys/module/cpu_input_boost/parameters
@@ -17,7 +16,6 @@ RVE_CPU_INPUT_BOOST=/sys/module/cpu_input_boost/parameters
 RVE_CPU4_FREQ=/sys/devices/system/cpu/cpu4/cpufreq
 RVE_CPU4_RvKernel=/sys/devices/system/cpu/cpu4/cpufreq/rvkernel
 RVE_CPU4_CORE=/sys/devices/system/cpu/cpu4/core_ctl
-RVE_CPU4_L3=/sys/class/devfreq/soc:qcom,l3-cpu4
 
 RVE_GPU=/sys/class/kgsl/kgsl-3d0
 RVE_GPU_FREQ=/sys/class/kgsl/kgsl-3d0/devfreq
@@ -60,11 +58,6 @@ chmod 0644 "$RVE_CPU0_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU0_CORE/max_cpus"
 chmod 0644 "$RVE_CPU0_CORE/min_cpus"
 
-#CPU0 L3 Cache
-chmod 0644 "$RVE_CPU0_L3/max_freq"
-chmod 0644 "$RVE_CPU0_L3/min_freq"
-chmod 0644 "$RVE_CPU0_L3/governor"
-
 #Little Cluster CPU4 Permission
 chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
@@ -81,11 +74,6 @@ chmod 0644 "$RVE_CPU4_CORE/busy_down_thres"
 chmod 0644 "$RVE_CPU4_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU4_CORE/max_cpus"
 chmod 0644 "$RVE_CPU4_CORE/min_cpus"
-
-#CPU4 L3 Cache
-chmod 0644 "$RVE_CPU0_L3/max_freq"
-chmod 0644 "$RVE_CPU0_L3/min_freq"
-chmod 0644 "$RVE_CPU0_L3/governor"
 
 #CPU Boost Permission
 chmod 0644 "$RVE_CPU_BOOST/input_boost_freq"
