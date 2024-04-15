@@ -4,7 +4,13 @@ LOG_RVTUNING=/sdcard
 DATE=$(date +"%Y-%m-%d")
 TIME=$(date +"%H:%M:%S")
 
-#log_rvtuning() {
+#Delete old log
+#rm -rf $LOG_RVTUNING/rvtuning.log
+
+#Exit on error
+#set -e
+
+rvtuning() {
 #PATH
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_RvKernel=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
@@ -40,6 +46,9 @@ RVE_STUNE_BACKGROUND=/dev/stune/background
 RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
+
+#Start
+echo "[$DATE]-[$TIME] Running RvTuning"
 
 #Little Cluster CPU0 Permission
 chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
@@ -268,7 +277,9 @@ echo 0 > "$RVE_KERNEL/print-fatal-signals"
 echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
-#echo "[$DATE]-[$TIME] Balance mode applied" | tee -a $LOG_RVTUNING/rvtuning.log
-#}
+#Done
+echo "[$DATE]-[$TIME] Balance mode applied"
+}
 
-#log_rvtuning
+#Call the function
+rvtuning #2>&1 | tee -a $LOG_RVTUNING/rvtuning.log
