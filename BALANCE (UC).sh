@@ -25,7 +25,6 @@ RVE_CPU4_CORE=/sys/devices/system/cpu/cpu4/core_ctl
 RVE_GPU=/sys/class/kgsl/kgsl-3d0
 RVE_GPU_FREQ=/sys/class/kgsl/kgsl-3d0/devfreq
 
-RVE_IOmmc=/sys/block/mmcblk0/queue
 RVE_IOa=/sys/block/sda/queue
 RVE_IOb=/sys/block/sdb/queue
 RVE_IOc=/sys/block/sdc/queue
@@ -111,10 +110,6 @@ chmod 0644 "$RVE_GPU_FREQ/max_freq"
 chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler Permission
-chmod 0644 "$RVE_IOmmc/scheduler"
-chmod 0644 "$RVE_IOmmc/read_ahead_kb"
-chmod 0644 "$RVE_IOmmc/nr_requests"
-
 chmod 0644 "$RVE_IOa/scheduler"
 chmod 0644 "$RVE_IOa/read_ahead_kb"
 chmod 0644 "$RVE_IOa/nr_requests"
@@ -218,10 +213,6 @@ echo 596000000 > "$RVE_GPU_FREQ/max_freq"
 echo 1 > "$RVE_GPU_FREQ/adrenoboost"
 
 #I/O Scheduler
-echo "rvkernel" > "$RVE_IOmmc/scheduler"
-echo 512 > "$RVE_IOmmc/read_ahead_kb"
-echo 128 > "$RVE_IOmmc/nr_requests"
-
 echo "rvkernel" > "$RVE_IOa/scheduler"
 echo 512 > "$RVE_IOa/read_ahead_kb"
 echo 128 > "$RVE_IOa/nr_requests"
