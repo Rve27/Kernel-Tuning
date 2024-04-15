@@ -60,6 +60,11 @@ chmod 0644 "$RVE_CPU0_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU0_CORE/max_cpus"
 chmod 0644 "$RVE_CPU0_CORE/min_cpus"
 
+#CPU0 L3 Cache
+chmod 0644 "$RVE_CPU0_L3/max_freq"
+chmod 0644 "$RVE_CPU0_L3/min_freq"
+chmod 0644 "$RVE_CPU0_L3/governor"
+
 #Little Cluster CPU4 Permission
 chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
@@ -76,6 +81,11 @@ chmod 0644 "$RVE_CPU4_CORE/busy_down_thres"
 chmod 0644 "$RVE_CPU4_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU4_CORE/max_cpus"
 chmod 0644 "$RVE_CPU4_CORE/min_cpus"
+
+#CPU4 L3 Cache
+chmod 0644 "$RVE_CPU0_L3/max_freq"
+chmod 0644 "$RVE_CPU0_L3/min_freq"
+chmod 0644 "$RVE_CPU0_L3/governor"
 
 #CPU Boost Permission
 chmod 0644 "$RVE_CPU_BOOST/input_boost_freq"
