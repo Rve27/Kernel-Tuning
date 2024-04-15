@@ -34,10 +34,10 @@ RVE_FAST_CHARGE=/sys/kernel/fast_charge
 RVE_VM=/proc/sys/vm
 RVE_KERNEL=/proc/sys/kernel
 
-RVE_ST=/dev/stune
-RVE_STta=/dev/stune/top-app
-RVE_STfg=/dev/stune/foreground
-RVE_STbg=/dev/stune/background
+RVE_STUNE=/dev/stune
+RVE_STUNE_TOP_APP=/dev/stune/top-app
+RVE_STUNE_FOREGROUND=/dev/stune/foreground
+RVE_STUNE_BACKGROUND=/dev/stune/background
 
 RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
@@ -247,12 +247,12 @@ echo "N" > "$RVE_FS/fsync_enabled"
 echo "bbr" > "$RVE_TCP/tcp_congestion_control"
 
 #Cpusets & Stune Boost
-echo 1 > "$RVE_STta/schedtune.prefer_idle"
-echo 1 > "$RVE_STta/schedtune.boost"
-echo 1 > "$RVE_STfg/schedtune.prefer_idle"
-echo 0 > "$RVE_STfg/schedtune.boost"
-echo -10 > "$RVE_STbg/schedtune.boost"
-echo 0 > "$RVE_ST/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.boost"
+echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
+echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
+echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
+echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
 
 #VM
 echo 50 > "$RVE_VM/vfs_cache_pressure"
