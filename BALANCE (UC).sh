@@ -15,7 +15,7 @@ rvtuning() {
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_RvKernel=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
 RVE_CPU0_CORE=/sys/devices/system/cpu/cpu0/core_ctl
-RVE_CPUb=/sys/module/cpu_boost/parameters
+RVE_CPU_BOOST=/sys/module/cpu_boost/parameters
 RVE_CPUib=/sys/module/cpu_input_boost/parameters
 
 RVE_CPU4_FREQ=/sys/devices/system/cpu/cpu4/cpufreq
@@ -85,9 +85,9 @@ chmod 0644 "$RVE_CPU4_CORE/max_cpus"
 chmod 0644 "$RVE_CPU4_CORE/min_cpus"
 
 #CPU Boost Permission
-chmod 0644 "$RVE_CPUb/input_boost_freq"
-chmod 0644 "$RVE_CPUb/input_boost_ms"
-chmod 0644 "$RVE_CPUb/sched_boost_on_input"
+chmod 0644 "$RVE_CPU_BOOST/input_boost_freq"
+chmod 0644 "$RVE_CPU_BOOST/input_boost_ms"
+chmod 0644 "$RVE_CPU_BOOST/sched_boost_on_input"
 chmod 0644 "$RVE_CPUib/dynamic_stune_boost"
 chmod 0644 "$RVE_CPUib/dynamic_stune_boost_duration"
 chmod 0644 "$RVE_CPUib/input_boost_duration"
@@ -190,9 +190,9 @@ echo 4 > "$RVE_CPU4_CORE/max_cpus"
 echo 1 > "$RVE_CPU4_CORE/min_cpus"
 
 #CPU Boost
-echo "0:1516800 1:1516800 2:1516800 3:1516800 4:2092800 5:2092800 6:2092800 7:2092800" > "$RVE_CPUb/input_boost_freq"
-echo 64 > "$RVE_CPUb/input_boost_ms"
-echo 1 > "$RVE_CPUb/sched_boost_on_input"
+echo "0:1516800 1:1516800 2:1516800 3:1516800 4:2092800 5:2092800 6:2092800 7:2092800" > "$RVE_CPU_BOOST/input_boost_freq"
+echo 64 > "$RVE_CPU_BOOST/input_boost_ms"
+echo 1 > "$RVE_CPU_BOOST/sched_boost_on_input"
 
 #CPU Input Boost
 echo 1 > "$RVE_CPUib/dynamic_stune_boost"
