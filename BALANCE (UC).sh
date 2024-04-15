@@ -11,14 +11,14 @@ TIME=$(date +"%H:%M:%S")
 #set -e
 
 rvtuning() {
-#RVE
-RVE_CPU0f=/sys/devices/system/cpu/cpu0/cpufreq
+#PATH
+RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_Rv=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
 RVE_CPU0c=/sys/devices/system/cpu/cpu0/core_ctl
 RVE_CPUb=/sys/module/cpu_boost/parameters
 RVE_CPUib=/sys/module/cpu_input_boost/parameters
 
-RVE_CPU4f=/sys/devices/system/cpu/cpu4/cpufreq
+RVE_CPU4_FREQ=/sys/devices/system/cpu/cpu4/cpufreq
 RVE_CPU4_Rv=/sys/devices/system/cpu/cpu4/cpufreq/rvkernel
 RVE_CPU4c=/sys/devices/system/cpu/cpu4/core_ctl
 
@@ -51,9 +51,9 @@ RVE_TCP=/proc/sys/net/ipv4
 echo "[$DATE]-[$TIME] Running RvTuning"
 
 #Little Cluster CPU0 Permission
-chmod 0644 "$RVE_CPU0f/scaling_governor"
-chmod 0644 "$RVE_CPU0f/scaling_max_freq"
-chmod 0644 "$RVE_CPU0f/scaling_min_freq"
+chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
+chmod 0644 "$RVE_CPU0_FREQ/scaling_max_freq"
+chmod 0644 "$RVE_CPU0_FREQ/scaling_min_freq"
 chmod 0644 "$RVE_CPU0_Rv/exp_util"
 chmod 0644 "$RVE_CPU0_Rv/hispeed_freq"
 chmod 0644 "$RVE_CPU0_Rv/hispeed_load"
@@ -68,9 +68,9 @@ chmod 0644 "$RVE_CPU0c/max_cpus"
 chmod 0644 "$RVE_CPU0c/min_cpus"
 
 #Little Cluster CPU4 Permission
-chmod 0644 "$RVE_CPU4f/scaling_governor"
-chmod 0644 "$RVE_CPU4f/scaling_max_freq"
-chmod 0644 "$RVE_CPU4f/scaling_min_freq"
+chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
+chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
+chmod 0644 "$RVE_CPU4_FREQ/scaling_min_freq"
 chmod 0644 "$RVE_CPU4_Rv/exp_util"
 chmod 0644 "$RVE_CPU4_Rv/hispeed_freq"
 chmod 0644 "$RVE_CPU4_Rv/hispeed_load"
@@ -152,9 +152,9 @@ chmod 0644 "$RVE_LMK/minfree"
 chmod 0644 "$RVE_FS/fsync_enabled"
 
 #Little Cluster CPU0
-echo "rvkernel" > "$RVE_CPU0f/scaling_governor"
-echo 1516800 > "$RVE_CPU0f/scaling_max_freq"
-echo 300000 > "$RVE_CPU0f/scaling_min_freq"
+echo "rvkernel" > "$RVE_CPU0_FREQ/scaling_governor"
+echo 1516800 > "$RVE_CPU0_FREQ/scaling_max_freq"
+echo 300000 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
 #CPU0 RvKernel
 echo 0 > "$RVE_CPU0_Rv/exp_util"
@@ -171,9 +171,9 @@ echo 4 > "$RVE_CPU0c/max_cpus"
 echo 2 > "$RVE_CPU0c/min_cpus"
 
 #Little Cluster CPU4
-echo "rvkernel" > "$RVE_CPU4f/scaling_governor"
-echo 2092800 > "$RVE_CPU4f/scaling_max_freq"
-echo 825600 > "$RVE_CPU4f/scaling_min_freq"
+echo "rvkernel" > "$RVE_CPU4_FREQ/scaling_governor"
+echo 2092800 > "$RVE_CPU4_FREQ/scaling_max_freq"
+echo 825600 > "$RVE_CPU4_FREQ/scaling_min_freq"
 
 #CPU4 RvKernel
 echo 0 > "$RVE_CPU4_Rv/exp_util"
