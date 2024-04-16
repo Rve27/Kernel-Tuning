@@ -164,7 +164,7 @@ echo 1 > "$RVE_CPU0_CORE/enable"
 echo 0 0 0 0 > "$RVE_CPU0_CORE/busy_down_thres"
 echo 0 0 0 0 > "$RVE_CPU0_CORE/busy_up_thres"
 echo 4 > "$RVE_CPU0_CORE/max_cpus"
-echo 2 > "$RVE_CPU0_CORE/min_cpus"
+echo 4 > "$RVE_CPU0_CORE/min_cpus"
 
 # Little Cluster CPU4
 echo "rvkernel" > "$RVE_CPU4_FREQ/scaling_governor"
@@ -180,10 +180,10 @@ echo 25000 > "$RVE_CPU4_RvKernel/down_rate_limit_us"
 
 # CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
-echo 30 30 30 30 > "$RVE_CPU4_CORE/busy_down_thres"
-echo 50 50 50 50 > "$RVE_CPU4_CORE/busy_up_thres"
+echo 0 0 0 0 > "$RVE_CPU4_CORE/busy_down_thres"
+echo 0 0 0 0 > "$RVE_CPU4_CORE/busy_up_thres"
 echo 4 > "$RVE_CPU4_CORE/max_cpus"
-echo 1 > "$RVE_CPU4_CORE/min_cpus"
+echo 4 > "$RVE_CPU4_CORE/min_cpus"
 
 # CPU Boost
 echo "0:1766400 1:1766400 2:1766400 3:1766400 4:2803200 5:2803200 6:2803200 7:2803200" > "$RVE_CPU_BOOST/input_boost_freq"
