@@ -254,9 +254,9 @@ echo "N" > "$RVE_FS/fsync_enabled"
 echo "bbr" > "$RVE_TCP/tcp_congestion_control"
 
 # Cpusets & Stune Boost
-echo 0 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
-echo 0 > "$RVE_STUNE_TOP_APP/schedtune.boost"
-echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.boost"
+echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
 echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
 echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
 echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
