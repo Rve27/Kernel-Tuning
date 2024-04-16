@@ -191,13 +191,13 @@ echo 0 > "$RVE_CPU_BOOST/input_boost_ms"
 echo 0 > "$RVE_CPU_BOOST/sched_boost_on_input"
 
 # CPU Input Boost
-echo 1 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost"
-echo 64 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost_duration"
-echo 64 > "$RVE_CPU_INPUT_BOOST/input_boost_duration"
-echo 300000 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_lp"
-echo 748800 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_lp"
-echo 825600 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_perf"
-echo 1056000 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
+echo 0 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost"
+echo 0 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost_duration"
+echo 0 > "$RVE_CPU_INPUT_BOOST/input_boost_duration"
+echo 0 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_lp"
+echo 0 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_lp"
+echo 0 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_perf"
+echo 0 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
 
 # GPU
 echo 160 > "$RVE_GPU/min_clock_mhz"
