@@ -187,7 +187,7 @@ echo 4 > "$RVE_CPU4_CORE/min_cpus"
 
 # CPU Boost
 echo "0:1766400 1:1766400 2:1766400 3:1766400 4:2803200 5:2803200 6:2803200 7:2803200" > "$RVE_CPU_BOOST/input_boost_freq"
-echo 64 > "$RVE_CPU_BOOST/input_boost_ms"
+echo 128 > "$RVE_CPU_BOOST/input_boost_ms"
 echo 1 > "$RVE_CPU_BOOST/sched_boost_on_input"
 
 # CPU Input Boost
