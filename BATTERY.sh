@@ -207,7 +207,7 @@ echo 1 > "$RVE_GPU/bus_split"
 echo 0 > "$RVE_GPU/force_bus_on"
 echo 0 > "$RVE_GPU/force_rail_on"
 echo 0 > "$RVE_GPU/force_clk_on"
-echo 0 > "$RVE_GPU/throttling"
+echo 1 > "$RVE_GPU/throttling"
 
 echo 160000000 > "$RVE_GPU_FREQ/min_freq"
 echo 257000000 > "$RVE_GPU_FREQ/max_freq"
