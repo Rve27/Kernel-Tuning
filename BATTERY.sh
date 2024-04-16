@@ -278,7 +278,7 @@ echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
 # Done
-echo "[$DATE]-[$TIME] Balance UC mode applied"
+echo "[$DATE]-[$TIME] Battery mode applied"
 }
 
 # Call the function
