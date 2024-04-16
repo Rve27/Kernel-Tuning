@@ -245,7 +245,7 @@ echo 1 > "$RVE_FAST_CHARGE/force_fast_charge"
 # LMK
 echo 1 > "$RVE_LMK/oom_reaper"
 echo 0 > "$RVE_LMK/lmk_fast_run"
-echo "18432,23040,27648,32256,85296,120640" > "$RVE_LMK/minfree"
+echo "33792,45056,56320,123904,168960,180224" > "$RVE_LMK/minfree"
 
 # fsync
 echo "N" > "$RVE_FS/fsync_enabled"
