@@ -4,14 +4,14 @@ LOG_RVTUNING=/sdcard
 DATE=$(date +"%Y-%m-%d")
 TIME=$(date +"%H:%M:%S")
 
-#Delete old log
+# Delete old log
 #rm -rf $LOG_RVTUNING/rvtuning.log
 
-#Exit on error
+# Exit on error
 #set -e
 
 rvtuning() {
-#PATH
+# PATH
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_RvKernel=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
 RVE_CPU0_CORE=/sys/devices/system/cpu/cpu0/core_ctl
@@ -47,10 +47,10 @@ RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
 
-#Start
+# Start
 echo "[$DATE]-[$TIME] Running RvTuning"
 
-#Little Cluster CPU0 Permission
+# Little Cluster CPU0 Permission
 chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_min_freq"
@@ -60,14 +60,14 @@ chmod 0644 "$RVE_CPU0_RvKernel/hispeed_load"
 chmod 0644 "$RVE_CPU0_RvKernel/up_rate_limit_us"
 chmod 0644 "$RVE_CPU0_RvKernel/down_rate_limit_us"
 
-#CPU0 core_ctl Permission
+# CPU0 core_ctl Permission
 chmod 0644 "$RVE_CPU0_CORE/enable"
 chmod 0644 "$RVE_CPU0_CORE/busy_down_thres"
 chmod 0644 "$RVE_CPU0_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU0_CORE/max_cpus"
 chmod 0644 "$RVE_CPU0_CORE/min_cpus"
 
-#Little Cluster CPU4 Permission
+# Little Cluster CPU4 Permission
 chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_min_freq"
@@ -77,14 +77,14 @@ chmod 0644 "$RVE_CPU4_RvKernel/hispeed_load"
 chmod 0644 "$RVE_CPU4_RvKernel/up_rate_limit_us"
 chmod 0644 "$RVE_CPU4_RvKernel/down_rate_limit_us"
 
-#CPU4 core_ctl Permission
+# CPU4 core_ctl Permission
 chmod 0644 "$RVE_CPU4_CORE/enable"
 chmod 0644 "$RVE_CPU4_CORE/busy_down_thres"
 chmod 0644 "$RVE_CPU4_CORE/busy_up_thres"
 chmod 0644 "$RVE_CPU4_CORE/max_cpus"
 chmod 0644 "$RVE_CPU4_CORE/min_cpus"
 
-#CPU Boost Permission
+# CPU Boost Permission
 chmod 0644 "$RVE_CPU_BOOST/input_boost_freq"
 chmod 0644 "$RVE_CPU_BOOST/input_boost_ms"
 chmod 0644 "$RVE_CPU_BOOST/sched_boost_on_input"
@@ -96,7 +96,7 @@ chmod 0644 "$RVE_CPU_INPUT_BOOST/input_boost_freq_lp"
 chmod 0644 "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_perf"
 chmod 0644 "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
 
-#GPU Permission
+# GPU Permission
 chmod 0644 "$RVE_GPU/min_clock_mhz"
 chmod 0644 "$RVE_GPU/max_clock_mhz"
 chmod 0644 "$RVE_GPU/max_gpuclk"
@@ -110,7 +110,7 @@ chmod 0644 "$RVE_GPU_FREQ/min_freq"
 chmod 0644 "$RVE_GPU_FREQ/max_freq"
 chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
 
-#I/O Scheduler Permission
+# I/O Scheduler Permission
 chmod 0644 "$RVE_IO_SDA/scheduler"
 chmod 0644 "$RVE_IO_SDA/read_ahead_kb"
 chmod 0644 "$RVE_IO_SDA/nr_requests"
@@ -135,62 +135,62 @@ chmod 0644 "$RVE_IO_SDF/scheduler"
 chmod 0644 "$RVE_IO_SDF/read_ahead_kb"
 chmod 0644 "$RVE_IO_SDF/nr_requests"
 
-#Charge Permission
+# Charge Permission
 chmod 0644 "$RVE_TC/skip_thermal"
 chmod 0644 "$RVE_FAST_CHARGE/force_fast_charge"
 
-#LMK Permission
+# LMK Permission
 chmod 0644 "$RVE_LMK/oom_reaper"
 chmod 0644 "$RVE_LMK/lmk_fast_run"
 chmod 0644 "$RVE_LMK/minfree"
 
-#FSync Permission
+# FSync Permission
 chmod 0644 "$RVE_FS/fsync_enabled"
 
-#Little Cluster CPU0
+# Little Cluster CPU0
 echo "rvkernel" > "$RVE_CPU0_FREQ/scaling_governor"
 echo 1516800 > "$RVE_CPU0_FREQ/scaling_max_freq"
 echo 300000 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
-#CPU0 rvkernel
+# CPU0 rvkernel
 echo 0 > "$RVE_CPU0_RvKernel/exp_util"
 echo 1516800 > "$RVE_CPU0_RvKernel/hispeed_freq"
 echo 70 > "$RVE_CPU0_RvKernel/hispeed_load"
 echo 500 > "$RVE_CPU0_RvKernel/up_rate_limit_us"
 echo 2000 > "$RVE_CPU0_RvKernel/down_rate_limit_us"
 
-#CPU0 core_ctl
+# CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
 echo 0 0 0 0 > "$RVE_CPU0_CORE/busy_down_thres"
 echo 0 0 0 0 > "$RVE_CPU0_CORE/busy_up_thres"
 echo 4 > "$RVE_CPU0_CORE/max_cpus"
 echo 2 > "$RVE_CPU0_CORE/min_cpus"
 
-#Little Cluster CPU4
+# Little Cluster CPU4
 echo "rvkernel" > "$RVE_CPU4_FREQ/scaling_governor"
 echo 2092800 > "$RVE_CPU4_FREQ/scaling_max_freq"
 echo 825600 > "$RVE_CPU4_FREQ/scaling_min_freq"
 
-#CPU4 rvkernel
+# CPU4 rvkernel
 echo 0 > "$RVE_CPU4_RvKernel/exp_util"
 echo 2092800 > "$RVE_CPU4_RvKernel/hispeed_freq"
 echo 70 > "$RVE_CPU4_RvKernel/hispeed_load"
 echo 500 > "$RVE_CPU4_RvKernel/up_rate_limit_us"
 echo 2000 > "$RVE_CPU4_RvKernel/down_rate_limit_us"
 
-#CPU4 core_ctl
+# CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
 echo 30 30 30 30 > "$RVE_CPU4_CORE/busy_down_thres"
 echo 50 50 50 50 > "$RVE_CPU4_CORE/busy_up_thres"
 echo 4 > "$RVE_CPU4_CORE/max_cpus"
 echo 1 > "$RVE_CPU4_CORE/min_cpus"
 
-#CPU Boost
+# CPU Boost
 echo "0:1516800 1:1516800 2:1516800 3:1516800 4:2092800 5:2092800 6:2092800 7:2092800" > "$RVE_CPU_BOOST/input_boost_freq"
 echo 64 > "$RVE_CPU_BOOST/input_boost_ms"
 echo 1 > "$RVE_CPU_BOOST/sched_boost_on_input"
 
-#CPU Input Boost
+# CPU Input Boost
 echo 1 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost"
 echo 64 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost_duration"
 echo 64 > "$RVE_CPU_INPUT_BOOST/input_boost_duration"
@@ -199,7 +199,7 @@ echo 748800 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_lp"
 echo 825600 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_perf"
 echo 1056000 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
 
-#GPU
+# GPU
 echo 160 > "$RVE_GPU/min_clock_mhz"
 echo 596 > "$RVE_GPU/max_clock_mhz"
 echo 596000000 > "$RVE_GPU/max_gpuclk"
@@ -213,7 +213,7 @@ echo 160000000 > "$RVE_GPU_FREQ/min_freq"
 echo 596000000 > "$RVE_GPU_FREQ/max_freq"
 echo 1 > "$RVE_GPU_FREQ/adrenoboost"
 
-#I/O Scheduler
+# I/O Scheduler
 echo "rvkernel" > "$RVE_IO_SDA/scheduler"
 echo 512 > "$RVE_IO_SDA/read_ahead_kb"
 echo 128 > "$RVE_IO_SDA/nr_requests"
@@ -238,22 +238,22 @@ echo "rvkernel" > "$RVE_IO_SDF/scheduler"
 echo 512 > "$RVE_IO_SDF/read_ahead_kb"
 echo 128 > "$RVE_IO_SDF/nr_requests"
 
-#Thermal Charge & Fast Charge
+# Thermal Charge & Fast Charge
 echo "N" > "$RVE_TC/skip_thermal"
 echo 1 > "$RVE_FAST_CHARGE/force_fast_charge"
 
-#LMK
+# LMK
 echo 1 > "$RVE_LMK/oom_reaper"
 echo 0 > "$RVE_LMK/lmk_fast_run"
 echo "18432,23040,27648,32256,85296,120640" > "$RVE_LMK/minfree"
 
-#fsync
+# fsync
 echo "N" > "$RVE_FS/fsync_enabled"
 
-#TCP Algorithm
+# TCP Algorithm
 echo "bbr" > "$RVE_TCP/tcp_congestion_control"
 
-#Cpusets & Stune Boost
+# Cpusets & Stune Boost
 echo 1 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
 echo 1 > "$RVE_STUNE_TOP_APP/schedtune.boost"
 echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
@@ -261,14 +261,14 @@ echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
 echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
 echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
 
-#VM
+# VM
 echo 50 > "$RVE_VM/vfs_cache_pressure"
 echo 30 > "$RVE_VM/stat_interval"
 echo 0 > "$RVE_VM/page-cluster"
 echo 100 > "$RVE_VM/swappiness"
 echo 60 > "$RVE_VM/dirty_ratio"
 
-#Kernel
+# Kernel
 echo 0 > "$RVE_KERNEL/panic_on_oops"
 echo 0 > "$RVE_KERNEL/panic_on_rcu_stall"
 echo 0 > "$RVE_KERNEL/panic_on_warn"
@@ -277,9 +277,9 @@ echo 0 > "$RVE_KERNEL/print-fatal-signals"
 echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
-#Done
+# Done
 echo "[$DATE]-[$TIME] Balance UC mode applied"
 }
 
-#Call the function
+# Call the function
 rvtuning #2>&1 | tee -a $LOG_RVTUNING/rvtuning.log
