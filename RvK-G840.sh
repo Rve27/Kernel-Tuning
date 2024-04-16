@@ -211,7 +211,7 @@ echo 0 > "$RVE_GPU/throttling"
 
 echo 414000000 > "$RVE_GPU_FREQ/min_freq"
 echo 840000000 > "$RVE_GPU_FREQ/max_freq"
-echo 1 > "$RVE_GPU_FREQ/adrenoboost"
+echo 3 > "$RVE_GPU_FREQ/adrenoboost"
 
 # I/O Scheduler
 echo "rvkernel" > "$RVE_IO_SDA/scheduler"
