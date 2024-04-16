@@ -15,6 +15,7 @@ rvtuning() {
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
 RVE_CPU0_RvKernel=/sys/devices/system/cpu/cpu0/cpufreq/rvkernel
 RVE_CPU0_CORE=/sys/devices/system/cpu/cpu0/core_ctl
+
 RVE_CPU_BOOST=/sys/module/cpu_boost/parameters
 RVE_CPU_INPUT_BOOST=/sys/module/cpu_input_boost/parameters
 
