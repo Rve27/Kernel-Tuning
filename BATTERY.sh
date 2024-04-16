@@ -186,9 +186,9 @@ echo 1 > "$RVE_CPU4_CORE/max_cpus"
 echo 0 > "$RVE_CPU4_CORE/min_cpus"
 
 # CPU Boost
-echo "0:1516800 1:1516800 2:1516800 3:1516800 4:2092800 5:2092800 6:2092800 7:2092800" > "$RVE_CPU_BOOST/input_boost_freq"
-echo 64 > "$RVE_CPU_BOOST/input_boost_ms"
-echo 1 > "$RVE_CPU_BOOST/sched_boost_on_input"
+echo "0:0 1:0 2:0 3:0 4:0 5:0 6:0 7:0" > "$RVE_CPU_BOOST/input_boost_freq"
+echo 0 > "$RVE_CPU_BOOST/input_boost_ms"
+echo 0 > "$RVE_CPU_BOOST/sched_boost_on_input"
 
 # CPU Input Boost
 echo 1 > "$RVE_CPU_INPUT_BOOST/dynamic_stune_boost"
