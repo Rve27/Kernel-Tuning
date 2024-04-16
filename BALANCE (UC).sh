@@ -34,14 +34,14 @@ RVE_IO_SDE=/sys/block/sde/queue
 RVE_IO_SDF=/sys/block/sdf/queue
 
 RVE_TC=/sys/module/smb_lib/parameters
-RVE_FC=/sys/kernel/fast_charge
+RVE_FAST_CHARGE=/sys/kernel/fast_charge
 RVE_VM=/proc/sys/vm
-RVE_K=/proc/sys/kernel
+RVE_KERNEL=/proc/sys/kernel
 
-RVE_ST=/dev/stune
-RVE_STta=/dev/stune/top-app
-RVE_STfg=/dev/stune/foreground
-RVE_STbg=/dev/stune/background
+RVE_STUNE=/dev/stune
+RVE_STUNE_TOP_APP=/dev/stune/top-app
+RVE_STUNE_FOREGROUND=/dev/stune/foreground
+RVE_STUNE_BACKGROUND=/dev/stune/background
 
 RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
@@ -137,7 +137,7 @@ chmod 0644 "$RVE_IO_SDF/nr_requests"
 
 #Charge Permission
 chmod 0644 "$RVE_TC/skip_thermal"
-chmod 0644 "$RVE_FC/force_fast_charge"
+chmod 0644 "$RVE_FAST_CHARGE/force_fast_charge"
 
 #LMK Permission
 chmod 0644 "$RVE_LMK/oom_reaper"
@@ -152,12 +152,12 @@ echo "rvkernel" > "$RVE_CPU0_FREQ/scaling_governor"
 echo 1516800 > "$RVE_CPU0_FREQ/scaling_max_freq"
 echo 300000 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
-#CPU0 RvKernel
+#CPU0 rvkernel
 echo 0 > "$RVE_CPU0_RvKernel/exp_util"
 echo 1516800 > "$RVE_CPU0_RvKernel/hispeed_freq"
-echo 70 > "$RVE_CPU0s/hispeed_load"
-echo 500 > "$RVE_CPU0s/up_rate_limit_us"
-echo 2000 > "$RVE_CPU0s/down_rate_limit_us"
+echo 70 > "$RVE_CPU0_RvKernel/hispeed_load"
+echo 500 > "$RVE_CPU0_RvKernel/up_rate_limit_us"
+echo 2000 > "$RVE_CPU0_RvKernel/down_rate_limit_us"
 
 #CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
@@ -171,7 +171,7 @@ echo "rvkernel" > "$RVE_CPU4_FREQ/scaling_governor"
 echo 2092800 > "$RVE_CPU4_FREQ/scaling_max_freq"
 echo 825600 > "$RVE_CPU4_FREQ/scaling_min_freq"
 
-#CPU4 RvKernel
+#CPU4 rvkernel
 echo 0 > "$RVE_CPU4_RvKernel/exp_util"
 echo 2092800 > "$RVE_CPU4_RvKernel/hispeed_freq"
 echo 70 > "$RVE_CPU4_RvKernel/hispeed_load"
@@ -240,7 +240,7 @@ echo 128 > "$RVE_IO_SDF/nr_requests"
 
 #Thermal Charge & Fast Charge
 echo "N" > "$RVE_TC/skip_thermal"
-echo 1 > "$RVE_FC/force_fast_charge"
+echo 1 > "$RVE_FAST_CHARGE/force_fast_charge"
 
 #LMK
 echo 1 > "$RVE_LMK/oom_reaper"
@@ -254,12 +254,12 @@ echo "N" > "$RVE_FS/fsync_enabled"
 echo "bbr" > "$RVE_TCP/tcp_congestion_control"
 
 #Cpusets & Stune Boost
-echo 1 > "$RVE_STta/schedtune.prefer_idle"
-echo 1 > "$RVE_STta/schedtune.boost"
-echo 1 > "$RVE_STfg/schedtune.prefer_idle"
-echo 0 > "$RVE_STfg/schedtune.boost"
-echo -10 > "$RVE_STbg/schedtune.boost"
-echo 0 > "$RVE_ST/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
+echo 1 > "$RVE_STUNE_TOP_APP/schedtune.boost"
+echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
+echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
+echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
+echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
 
 #VM
 echo 50 > "$RVE_VM/vfs_cache_pressure"
@@ -269,13 +269,13 @@ echo 100 > "$RVE_VM/swappiness"
 echo 60 > "$RVE_VM/dirty_ratio"
 
 #Kernel
-echo 0 > "$RVE_K/panic_on_oops"
-echo 0 > "$RVE_K/panic_on_rcu_stall"
-echo 0 > "$RVE_K/panic_on_warn"
-echo 1 > "$RVE_K/perf_event_paranoid"
-echo 0 > "$RVE_K/print-fatal-signals"
-echo 1 > "$RVE_K/sched_min_task_util_for_boost_colocation"
-echo 1 > "$RVE_K/sched_autogroup_enabled"
+echo 0 > "$RVE_KERNEL/panic_on_oops"
+echo 0 > "$RVE_KERNEL/panic_on_rcu_stall"
+echo 0 > "$RVE_KERNEL/panic_on_warn"
+echo 1 > "$RVE_KERNEL/perf_event_paranoid"
+echo 0 > "$RVE_KERNEL/print-fatal-signals"
+echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
+echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
 #Done
 echo "[$DATE]-[$TIME] Balance UC mode applied"
