@@ -201,8 +201,8 @@ echo 1536000 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
 
 # GPU
 echo 414 > "$RVE_GPU/min_clock_mhz"
-echo 840 > "$RVE_GPU/max_clock_mhz"
-echo 840000000 > "$RVE_GPU/max_gpuclk"
+echo 800 > "$RVE_GPU/max_clock_mhz"
+echo 800000000 > "$RVE_GPU/max_gpuclk"
 echo 0 > "$RVE_GPU/bus_split"
 echo 1 > "$RVE_GPU/force_bus_on"
 echo 1 > "$RVE_GPU/force_rail_on"
@@ -210,7 +210,7 @@ echo 1 > "$RVE_GPU/force_clk_on"
 echo 0 > "$RVE_GPU/throttling"
 
 echo 414000000 > "$RVE_GPU_FREQ/min_freq"
-echo 840000000 > "$RVE_GPU_FREQ/max_freq"
+echo 800000000 > "$RVE_GPU_FREQ/max_freq"
 echo 3 > "$RVE_GPU_FREQ/adrenoboost"
 
 # I/O Scheduler
