@@ -138,7 +138,7 @@ chmod 0644 "$RVE_FS/fsync_enabled"
 # Little Cluster CPU0
 echo "performance" > "$RVE_CPU0_FREQ/scaling_governor"
 echo 1766400 > "$RVE_CPU0_FREQ/scaling_max_freq"
-echo 902400 > "$RVE_CPU0_FREQ/scaling_min_freq"
+echo 1766400 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
 # CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
@@ -150,7 +150,7 @@ echo 4 > "$RVE_CPU0_CORE/min_cpus"
 # Little Cluster CPU4
 echo "performance" > "$RVE_CPU4_FREQ/scaling_governor"
 echo 2803200 > "$RVE_CPU4_FREQ/scaling_max_freq"
-echo 1536000 > "$RVE_CPU4_FREQ/scaling_min_freq"
+echo 2803200 > "$RVE_CPU4_FREQ/scaling_min_freq"
 
 # CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
