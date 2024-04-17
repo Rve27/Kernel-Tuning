@@ -52,11 +52,6 @@ echo "[$DATE]-[$TIME] Running RvTuning"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_min_freq"
-chmod 0644 "$RVE_CPU0_RvKernel/exp_util"
-chmod 0644 "$RVE_CPU0_RvKernel/hispeed_freq"
-chmod 0644 "$RVE_CPU0_RvKernel/hispeed_load"
-chmod 0644 "$RVE_CPU0_RvKernel/up_rate_limit_us"
-chmod 0644 "$RVE_CPU0_RvKernel/down_rate_limit_us"
 
 # CPU0 core_ctl Permission
 chmod 0644 "$RVE_CPU0_CORE/enable"
@@ -69,11 +64,6 @@ chmod 0644 "$RVE_CPU0_CORE/min_cpus"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_min_freq"
-chmod 0644 "$RVE_CPU4_RvKernel/exp_util"
-chmod 0644 "$RVE_CPU4_RvKernel/hispeed_freq"
-chmod 0644 "$RVE_CPU4_RvKernel/hispeed_load"
-chmod 0644 "$RVE_CPU4_RvKernel/up_rate_limit_us"
-chmod 0644 "$RVE_CPU4_RvKernel/down_rate_limit_us"
 
 # CPU4 core_ctl Permission
 chmod 0644 "$RVE_CPU4_CORE/enable"
@@ -150,13 +140,6 @@ echo "rvkernel" > "$RVE_CPU0_FREQ/scaling_governor"
 echo 1766400 > "$RVE_CPU0_FREQ/scaling_max_freq"
 echo 902400 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
-# CPU0 RvKernel
-echo 1 > "$RVE_CPU0_RvKernel/exp_util"
-echo 1766400 > "$RVE_CPU0_RvKernel/hispeed_freq"
-echo 40 > "$RVE_CPU0_RvKernel/hispeed_load"
-echo 500 > "$RVE_CPU0_RvKernel/up_rate_limit_us"
-echo 25000 > "$RVE_CPU0_RvKernel/down_rate_limit_us"
-
 # CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
 echo 0 0 0 0 > "$RVE_CPU0_CORE/busy_down_thres"
@@ -168,13 +151,6 @@ echo 4 > "$RVE_CPU0_CORE/min_cpus"
 echo "rvkernel" > "$RVE_CPU4_FREQ/scaling_governor"
 echo 2803200 > "$RVE_CPU4_FREQ/scaling_max_freq"
 echo 1536000 > "$RVE_CPU4_FREQ/scaling_min_freq"
-
-# CPU4 RvKernel
-echo 1 > "$RVE_CPU4_RvKernel/exp_util"
-echo 2803200 > "$RVE_CPU4_RvKernel/hispeed_freq"
-echo 40 > "$RVE_CPU4_RvKernel/hispeed_load"
-echo 500 > "$RVE_CPU4_RvKernel/up_rate_limit_us"
-echo 25000 > "$RVE_CPU4_RvKernel/down_rate_limit_us"
 
 # CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
