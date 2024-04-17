@@ -278,7 +278,7 @@ echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
 # Done
-echo "[$DATE]-[$TIME] RvK-G840 mode applied"
+echo "[$DATE]-[$TIME] RvK-G800 mode applied"
 }
 
 # Call the function
