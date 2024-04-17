@@ -97,6 +97,7 @@ chmod 0644 "$RVE_GPU/throttling"
 chmod 0644 "$RVE_GPU_FREQ/min_freq"
 chmod 0644 "$RVE_GPU_FREQ/max_freq"
 chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
+chmod 0644 "$RVE_GPU_FREQ/governor"
 
 # I/O Scheduler Permission
 chmod 0644 "$RVE_IO_SDA/scheduler"
@@ -186,6 +187,7 @@ echo 0 > "$RVE_GPU/throttling"
 echo 840000000 > "$RVE_GPU_FREQ/min_freq"
 echo 840000000 > "$RVE_GPU_FREQ/max_freq"
 echo 3 > "$RVE_GPU_FREQ/adrenoboost"
+echo "performance" > "$RVE_GPU_FREQ/governor"
 
 # I/O Scheduler
 echo "rvkernel" > "$RVE_IO_SDA/scheduler"
