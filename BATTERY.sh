@@ -59,6 +59,7 @@ chmod 0644 "$RVE_CPU0_RvKernel/hispeed_freq"
 chmod 0644 "$RVE_CPU0_RvKernel/hispeed_load"
 chmod 0644 "$RVE_CPU0_RvKernel/up_rate_limit_us"
 chmod 0644 "$RVE_CPU0_RvKernel/down_rate_limit_us"
+chmod 0644 "$RVE_CPU0_RvKernel/iowait_boost_enable"
 
 # CPU0 core_ctl Permission
 chmod 0644 "$RVE_CPU0_CORE/enable"
@@ -76,6 +77,7 @@ chmod 0644 "$RVE_CPU4_RvKernel/hispeed_freq"
 chmod 0644 "$RVE_CPU4_RvKernel/hispeed_load"
 chmod 0644 "$RVE_CPU4_RvKernel/up_rate_limit_us"
 chmod 0644 "$RVE_CPU4_RvKernel/down_rate_limit_us"
+chmod 0644 "$RVE_CPU4_RvKernel/iowait_boost_enable"
 
 # CPU4 core_ctl Permission
 chmod 0644 "$RVE_CPU4_CORE/enable"
@@ -159,6 +161,7 @@ echo 1228800 > "$RVE_CPU0_RvKernel/hispeed_freq"
 echo 90 > "$RVE_CPU0_RvKernel/hispeed_load"
 echo 5000 > "$RVE_CPU0_RvKernel/up_rate_limit_us"
 echo 5000 > "$RVE_CPU0_RvKernel/down_rate_limit_us"
+echo 0 > "$RVE_CPU0_RvKernel/iowait_boost_enable"
 
 # CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
@@ -178,6 +181,7 @@ echo 1209600 > "$RVE_CPU4_RvKernel/hispeed_freq"
 echo 90 > "$RVE_CPU4_RvKernel/hispeed_load"
 echo 5000 > "$RVE_CPU4_RvKernel/up_rate_limit_us"
 echo 5000 > "$RVE_CPU4_RvKernel/down_rate_limit_us"
+echo 0 > "$RVE_CPU4_RvKernel/iowait_boost_enable"
 
 # CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
