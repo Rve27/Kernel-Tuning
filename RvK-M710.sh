@@ -175,17 +175,17 @@ echo 1536000 > "$RVE_CPU_INPUT_BOOST/remove_input_boost_freq_perf"
 echo 2803200 > "$RVE_CPU_INPUT_BOOST/input_boost_freq_hp"
 
 # GPU
-echo 840 > "$RVE_GPU/min_clock_mhz"
-echo 840 > "$RVE_GPU/max_clock_mhz"
-echo 840000000 > "$RVE_GPU/max_gpuclk"
+echo 710 > "$RVE_GPU/min_clock_mhz"
+echo 710 > "$RVE_GPU/max_clock_mhz"
+echo 710000000 > "$RVE_GPU/max_gpuclk"
 echo 0 > "$RVE_GPU/bus_split"
 echo 1 > "$RVE_GPU/force_bus_on"
 echo 1 > "$RVE_GPU/force_rail_on"
 echo 1 > "$RVE_GPU/force_clk_on"
 echo 0 > "$RVE_GPU/throttling"
 
-echo 840000000 > "$RVE_GPU_FREQ/min_freq"
-echo 840000000 > "$RVE_GPU_FREQ/max_freq"
+echo 710000000 > "$RVE_GPU_FREQ/min_freq"
+echo 710000000 > "$RVE_GPU_FREQ/max_freq"
 echo 3 > "$RVE_GPU_FREQ/adrenoboost"
 echo "performance" > "$RVE_GPU_FREQ/governor"
 
@@ -254,7 +254,7 @@ echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 
 # Done
-echo "[$DATE]-[$TIME] RvK-G840 mode applied"
+echo "[$DATE]-[$TIME] RvK-G710 mode applied"
 }
 
 # Call the function
