@@ -8,7 +8,7 @@
 
 # Download
 - [Kernel Tuning (Atomic)](https://github.com/Rve27/Kernel-Tuning/releases/tag/v1)
-- RvKernel Atomic
+- [RvKernel Atomic](https://t.me/rvkernel/621)
 
 # Telegram
 - [Channel](https://t.me/rvkernel)
