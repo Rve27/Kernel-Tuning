@@ -7,7 +7,7 @@
 - The number after `RvK-Gxxx` or `RvK-Mxxx` that mean the max frequency of the GPU, example `RvK-G840` that mean the max GPU frequency is 840MHz
 
 # Download
-- [Kernel Tuning (Atomic)](https://github.com/Rve27/Kernel-Tuning/releases/tag/v1)
+- [Tuning for RvKernel Atomic](https://github.com/Rve27/Kernel-Tuning/releases/tag/Atomic)
 - [RvKernel Atomic](https://t.me/rvkernel/621)
 
 # Telegram
