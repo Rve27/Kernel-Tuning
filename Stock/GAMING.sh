@@ -238,7 +238,10 @@ echo 0 > "$RVE_KERNEL/panic_on_warn"
 echo 1 > "$RVE_KERNEL/perf_event_paranoid"
 echo 0 > "$RVE_KERNEL/print-fatal-signals"
 echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
+
+# Sched
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
+echo 1 > "$RVE_KERNEL/sched_bore"
 
 # Done
 echo "[$DATE]-[$TIME] Gaming mode applied"
