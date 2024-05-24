@@ -163,27 +163,27 @@ echo 3 > "$RVE_GPU_FREQ/adrenoboost"
 echo "msm-adreno-tz" > "$RVE_GPU_FREQ/governor"
 
 # I/O Scheduler
-echo "cfq" > "$RVE_IO_SDA/scheduler"
+echo "deadline" > "$RVE_IO_SDA/scheduler"
 echo 1024 > "$RVE_IO_SDA/read_ahead_kb"
 echo 256 > "$RVE_IO_SDA/nr_requests"
 
-echo "cfq" > "$RVE_IO_SDB/scheduler"
+echo "deadline" > "$RVE_IO_SDB/scheduler"
 echo 1024 > "$RVE_IO_SDB/read_ahead_kb"
 echo 256 > "$RVE_IO_SDB/nr_requests"
 
-echo "cfq" > "$RVE_IO_SDC/scheduler"
+echo "deadline" > "$RVE_IO_SDC/scheduler"
 echo 1024 > "$RVE_IO_SDC/read_ahead_kb"
 echo 256 > "$RVE_IO_SDC/nr_requests"
 
-echo "cfq" > "$RVE_IO_SDD/scheduler"
+echo "deadline" > "$RVE_IO_SDD/scheduler"
 echo 1024 > "$RVE_IO_SDD/read_ahead_kb"
 echo 256 > "$RVE_IO_SDD/nr_requests"
 
-echo "cfq" > "$RVE_IO_SDE/scheduler"
+echo "deadline" > "$RVE_IO_SDE/scheduler"
 echo 1024 > "$RVE_IO_SDE/read_ahead_kb"
 echo 256 > "$RVE_IO_SDE/nr_requests"
 
-echo "cfq" > "$RVE_IO_SDF/scheduler"
+echo "deadline" > "$RVE_IO_SDF/scheduler"
 echo 1024 > "$RVE_IO_SDF/read_ahead_kb"
 echo 256 > "$RVE_IO_SDF/nr_requests"
 
