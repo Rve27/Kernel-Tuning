@@ -1,6 +1,6 @@
 # Download
-- [RvKernel Dino](https://t.me/rvkernel/690)
-- [Tuning for RvKernel Dino](github.com/Rve27/Kernel-Tuning/releases/tag/Dino)
+- RvKernel Valentine
+- [Tuning for RvKernel Valentine](github.com/Rve27/Kernel-Tuning/releases/tag/Valentine)
 # Telegram
 - [Channel](t.me/rvkernel)
 - [Discussion](t.me/rvkerneldisc)
