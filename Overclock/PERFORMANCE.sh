@@ -224,6 +224,7 @@ echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 # Sched
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
 echo 1 > "$RVE_KERNEL/sched_bore"
+echo 1 > "$RVE_KERNEL/sched_cfs_boost"
 
 # Done
 echo "[$DATE]-[$TIME] Gaming mode applied"
