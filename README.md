@@ -1,6 +1,6 @@
 # Download
-- [RvKernel Valentine](https://bit.ly/ayang_valentine)
-- [Tuning for RvKernel Valentine](https://github.com/Rve27/Kernel-Tuning/releases/tag/Valentine-V1)
+- [RvKernel Leon](https://bit.ly/rvkernel-leon)
+- [Tuning for RvKernel Leon](https://github.com/Rve27/Kernel-Tuning/releases/tag/Leon-V1)
 # Telegram
 - [Channel](t.me/rvkernel)
 - [Discussion](t.me/rvkerneldisc)
