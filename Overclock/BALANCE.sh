@@ -10,13 +10,13 @@ TIME=$(date +"%H:%M:%S")
 rvtuning() {
 # PATH
 RVE_CPU0_FREQ=/sys/devices/system/cpu/cpu0/cpufreq
-RVE_CPU0_schedutil=/sys/devices/system/cpu/cpu0/cpufreq/schedutil
+RVE_CPU0_walt=/sys/devices/system/cpu/cpu0/cpufreq/walt
 RVE_CPU0_CORE=/sys/devices/system/cpu/cpu0/core_ctl
 
 RVE_CPU_BOOST=/sys/module/cpu_boost/parameters
 
 RVE_CPU4_FREQ=/sys/devices/system/cpu/cpu4/cpufreq
-RVE_CPU4_schedutil=/sys/devices/system/cpu/cpu4/cpufreq/schedutil
+RVE_CPU4_walt=/sys/devices/system/cpu/cpu4/cpufreq/walt
 RVE_CPU4_CORE=/sys/devices/system/cpu/cpu4/core_ctl
 
 RVE_GPU=/sys/class/kgsl/kgsl-3d0
@@ -50,7 +50,7 @@ echo "[$DATE]-[$TIME] Running RvTuning"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU0_FREQ/scaling_min_freq"
-chmod 0644 $RVE_CPU0_schedutil/*
+chmod 0644 $RVE_CPU0_walt/*
 
 # CPU0 core_ctl Permission
 chmod 0644 "$RVE_CPU0_CORE/enable"
@@ -63,7 +63,7 @@ chmod 0644 "$RVE_CPU0_CORE/min_cpus"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
 chmod 0644 "$RVE_CPU4_FREQ/scaling_min_freq"
-chmod 0644 $RVE_CPU4_schedutil/*
+chmod 0644 $RVE_CPU4_walt/*
 
 # CPU4 core_ctl Permission
 chmod 0644 "$RVE_CPU4_CORE/enable"
@@ -123,16 +123,15 @@ chmod 0644 "$RVE_FAST_CHARGE/force_fast_charge"
 chmod 0644 $RVE_LMK/*
 
 # Little Cluster CPU0
-echo "schedutil" > "$RVE_CPU0_FREQ/scaling_governor"
+echo "walt" > "$RVE_CPU0_FREQ/scaling_governor"
 echo 1766400 > "$RVE_CPU0_FREQ/scaling_max_freq"
 echo 300000 > "$RVE_CPU0_FREQ/scaling_min_freq"
 
-# CPU0 schedutil
-echo 1766400 > "$RVE_CPU0_schedutil/hispeed_freq"
-echo 70 > "$RVE_CPU0_schedutil/hispeed_load"
-echo 500 > "$RVE_CPU0_schedutil/up_rate_limit_us"
-echo 2000 > "$RVE_CPU0_schedutil/down_rate_limit_us"
-echo 1 > "$RVE_CPU0_schedutil/iowait_boost_enable"
+# CPU0 WALT
+echo 1766400 > "$RVE_CPU0_walt/hispeed_freq"
+echo 70 > "$RVE_CPU0_walt/hispeed_load"
+echo 500 > "$RVE_CPU0_walt/up_rate_limit_us"
+echo 2000 > "$RVE_CPU0_walt/down_rate_limit_us"
 
 # CPU0 core_ctl
 echo 1 > "$RVE_CPU0_CORE/enable"
@@ -142,16 +141,15 @@ echo 4 > "$RVE_CPU0_CORE/max_cpus"
 echo 2 > "$RVE_CPU0_CORE/min_cpus"
 
 # Big Cluster CPU4
-echo "schedutil" > "$RVE_CPU4_FREQ/scaling_governor"
+echo "walt" > "$RVE_CPU4_FREQ/scaling_governor"
 echo 2803200 > "$RVE_CPU4_FREQ/scaling_max_freq"
 echo 825600 > "$RVE_CPU4_FREQ/scaling_min_freq"
 
-# CPU4 schedutil
-echo 2803200 > "$RVE_CPU4_schedutil/hispeed_freq"
-echo 70 > "$RVE_CPU4_schedutil/hispeed_load"
-echo 500 > "$RVE_CPU4_schedutil/up_rate_limit_us"
-echo 2000 > "$RVE_CPU4_schedutil/down_rate_limit_us"
-echo 1 > "$RVE_CPU4_schedutil/iowait_boost_enable"
+# CPU4 WALT
+echo 2803200 > "$RVE_CPU4_walt/hispeed_freq"
+echo 70 > "$RVE_CPU4_walt/hispeed_load"
+echo 500 > "$RVE_CPU4_walt/up_rate_limit_us"
+echo 2000 > "$RVE_CPU4_walt/down_rate_limit_us"
 
 # CPU4 core_ctl
 echo 1 > "$RVE_CPU4_CORE/enable"
