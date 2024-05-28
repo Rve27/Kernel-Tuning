@@ -35,7 +35,6 @@ RVE_STUNE_TOP_APP=/dev/stune/top-app
 RVE_STUNE_FOREGROUND=/dev/stune/foreground
 RVE_STUNE_BACKGROUND=/dev/stune/background
 
-RVE_LMK=/sys/module/lowmemorykiller/parameters
 RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
 
@@ -188,10 +187,6 @@ echo 256 > "$RVE_IO_SDF/nr_requests"
 # Charging
 echo "Y" > "$RVE_ST/skip_thermal"
 echo 1 > "$RVE_FAST_CHARGE/force_fast_charge"
-
-# LMK
-echo 1 > "$RVE_LMK/oom_reaper"
-echo 0 > "$RVE_LMK/lmk_fast_run"
 
 # TCP Algorithm
 echo "bbrplus" > "$RVE_TCP/tcp_congestion_control"
