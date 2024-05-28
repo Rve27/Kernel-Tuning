@@ -29,7 +29,6 @@ RVE_IO_SDF=/sys/block/sdf/queue
 
 RVE_ST=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
-RVE_VM=/proc/sys/vm
 RVE_KERNEL=/proc/sys/kernel
 
 RVE_STUNE=/dev/stune
@@ -205,13 +204,6 @@ echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
 echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
 echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
 echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
-
-# VM
-echo 50 > "$RVE_VM/vfs_cache_pressure"
-echo 30 > "$RVE_VM/stat_interval"
-echo 0 > "$RVE_VM/page-cluster"
-echo 100 > "$RVE_VM/swappiness"
-echo 60 > "$RVE_VM/dirty_ratio"
 
 # Kernel
 echo 0 > "$RVE_KERNEL/panic_on_oops"
