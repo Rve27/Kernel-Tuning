@@ -5,7 +5,7 @@ DATE=$(date +"%Y-%m-%d")
 TIME=$(date +"%H:%M:%S")
 
 # Delete old log
-#rm -rf $LOG_RVTUNING/rvtuning.log
+rm -rf $LOG_RVTUNING/rvtuning.log
 
 rvtuning() {
 # PATH
@@ -32,86 +32,11 @@ RVE_IO_SDF=/sys/block/sdf/queue
 RVE_ST=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
 
+RVE_KERNEL=/proc/sys/kernel
 RVE_TCP=/proc/sys/net/ipv4
 
 # Start
 echo "[$DATE]-[$TIME] Running RvTuning"
-
-# Little Cluster CPU0 Permission
-chmod 0644 "$RVE_CPU0_FREQ/scaling_governor"
-chmod 0644 "$RVE_CPU0_FREQ/scaling_max_freq"
-chmod 0644 "$RVE_CPU0_FREQ/scaling_min_freq"
-chmod 0644 $RVE_CPU0_schedutil/*
-
-# CPU0 core_ctl Permission
-chmod 0644 "$RVE_CPU0_CORE/enable"
-chmod 0644 "$RVE_CPU0_CORE/busy_down_thres"
-chmod 0644 "$RVE_CPU0_CORE/busy_up_thres"
-chmod 0644 "$RVE_CPU0_CORE/max_cpus"
-chmod 0644 "$RVE_CPU0_CORE/min_cpus"
-
-# Big Cluster CPU4 Permission
-chmod 0644 "$RVE_CPU4_FREQ/scaling_governor"
-chmod 0644 "$RVE_CPU4_FREQ/scaling_max_freq"
-chmod 0644 "$RVE_CPU4_FREQ/scaling_min_freq"
-chmod 0644 $RVE_CPU4_schedutil/*
-
-# CPU4 core_ctl Permission
-chmod 0644 "$RVE_CPU4_CORE/enable"
-chmod 0644 "$RVE_CPU4_CORE/busy_down_thres"
-chmod 0644 "$RVE_CPU4_CORE/busy_up_thres"
-chmod 0644 "$RVE_CPU4_CORE/max_cpus"
-chmod 0644 "$RVE_CPU4_CORE/min_cpus"
-
-# CPU Boost Permission
-chmod 0644 $RVE_CPU_BOOST/*
-
-# GPU Permission
-chmod 0644 "$RVE_GPU/min_clock_mhz"
-chmod 0644 "$RVE_GPU/max_clock_mhz"
-chmod 0644 "$RVE_GPU/max_gpuclk"
-chmod 0644 "$RVE_GPU/bus_split"
-chmod 0644 "$RVE_GPU/force_bus_on"
-chmod 0644 "$RVE_GPU/force_rail_on"
-chmod 0644 "$RVE_GPU/force_clk_on"
-chmod 0644 "$RVE_GPU/throttling"
-
-chmod 0644 "$RVE_GPU_FREQ/min_freq"
-chmod 0644 "$RVE_GPU_FREQ/max_freq"
-chmod 0644 "$RVE_GPU_FREQ/adrenoboost"
-chmod 0644 "$RVE_GPU_FREQ/governor"
-
-# I/O Scheduler Permission
-chmod 0644 "$RVE_IO_SDA/scheduler"
-chmod 0644 "$RVE_IO_SDA/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDA/nr_requests"
-
-chmod 0644 "$RVE_IO_SDB/scheduler"
-chmod 0644 "$RVE_IO_SDB/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDB/nr_requests"
-
-chmod 0644 "$RVE_IO_SDC/scheduler"
-chmod 0644 "$RVE_IO_SDC/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDC/nr_requests"
-
-chmod 0644 "$RVE_IO_SDD/scheduler"
-chmod 0644 "$RVE_IO_SDD/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDD/nr_requests"
-
-chmod 0644 "$RVE_IO_SDE/scheduler"
-chmod 0644 "$RVE_IO_SDE/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDE/nr_requests"
-
-chmod 0644 "$RVE_IO_SDF/scheduler"
-chmod 0644 "$RVE_IO_SDF/read_ahead_kb"
-chmod 0644 "$RVE_IO_SDF/nr_requests"
-
-# Charging Permission
-chmod 0644 "$RVE_ST/skip_thermal"
-chmod 0644 "$RVE_FAST_CHARGE/force_fast_charge"
-
-# LMK Permission
-chmod 0644 $RVE_LMK/*
 
 # Little Cluster CPU0
 echo "schedutil" > "$RVE_CPU0_FREQ/scaling_governor"
@@ -164,6 +89,7 @@ echo 1 > "$RVE_GPU/bus_split"
 echo 0 > "$RVE_GPU/force_bus_on"
 echo 0 > "$RVE_GPU/force_rail_on"
 echo 0 > "$RVE_GPU/force_clk_on"
+chmod 0644 "$RVE_GPU/throttling"
 echo 0 > "$RVE_GPU/throttling"
 
 echo 160000000 > "$RVE_GPU_FREQ/min_freq"
@@ -214,4 +140,4 @@ echo "[$DATE]-[$TIME] Balance mode applied"
 }
 
 # Call the function
-rvtuning #2>&1 | tee -a $LOG_RVTUNING/rvtuning.log
+rvtuning 2>&1 | tee -a $LOG_RVTUNING/rvtuning.log
