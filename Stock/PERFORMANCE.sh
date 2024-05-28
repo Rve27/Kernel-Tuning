@@ -30,7 +30,6 @@ RVE_IO_SDF=/sys/block/sdf/queue
 RVE_ST=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
 
-RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
 
 # Start
