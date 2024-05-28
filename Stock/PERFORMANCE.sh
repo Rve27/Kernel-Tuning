@@ -29,7 +29,6 @@ RVE_IO_SDF=/sys/block/sdf/queue
 
 RVE_ST=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
-RVE_KERNEL=/proc/sys/kernel
 
 RVE_STUNE=/dev/stune
 RVE_STUNE_TOP_APP=/dev/stune/top-app
@@ -204,14 +203,6 @@ echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
 echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
 echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
 echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
-
-# Kernel
-echo 0 > "$RVE_KERNEL/panic_on_oops"
-echo 0 > "$RVE_KERNEL/panic_on_rcu_stall"
-echo 0 > "$RVE_KERNEL/panic_on_warn"
-echo 1 > "$RVE_KERNEL/perf_event_paranoid"
-echo 0 > "$RVE_KERNEL/print-fatal-signals"
-echo 1 > "$RVE_KERNEL/sched_min_task_util_for_boost_colocation"
 
 # Sched
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
