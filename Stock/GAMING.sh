@@ -32,11 +32,6 @@ RVE_IO_SDF=/sys/block/sdf/queue
 RVE_ST=/sys/module/smb_lib/parameters
 RVE_FAST_CHARGE=/sys/kernel/fast_charge
 
-RVE_STUNE=/dev/stune
-RVE_STUNE_TOP_APP=/dev/stune/top-app
-RVE_STUNE_FOREGROUND=/dev/stune/foreground
-RVE_STUNE_BACKGROUND=/dev/stune/background
-
 RVE_FS=/sys/module/sync/parameters
 RVE_TCP=/proc/sys/net/ipv4
 
@@ -208,14 +203,6 @@ echo 1 > "$RVE_FAST_CHARGE/force_fast_charge"
 
 # TCP Algorithm
 echo "bbrplus" > "$RVE_TCP/tcp_congestion_control"
-
-# Cpusets & Stune Boost
-echo 1 > "$RVE_STUNE_TOP_APP/schedtune.prefer_idle"
-echo 1 > "$RVE_STUNE_TOP_APP/schedtune.boost"
-echo 1 > "$RVE_STUNE_FOREGROUND/schedtune.prefer_idle"
-echo 0 > "$RVE_STUNE_FOREGROUND/schedtune.boost"
-echo -10 > "$RVE_STUNE_BACKGROUND/schedtune.boost"
-echo 0 > "$RVE_STUNE/schedtune.prefer_idle"
 
 # Sched
 echo 1 > "$RVE_KERNEL/sched_autogroup_enabled"
